@@ -1,0 +1,74 @@
+<!-- <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Antic+Slab&family=Bubblegum+Sans&family=Kalam:wght@700&family=Special+Elite&display=swap');
+        </style>
+</head>
+<div class="reg">
+    <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+        <legend>Prijava</legend>   
+            <div class="inputi">
+                <label>Email</label>
+                <input class="form-control" type="email" placeholder="Unesite @size.ba mail" required
+                formControlName="email" class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>  
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Obavezan unos</div>
+                    <div *ngIf="f.email.errors.email">E-mail adresa nije validna</div>
+                </div>
+            </div>
+            <div class="inputi">
+                <label>Šifra</label>
+                <input class="form-control" [type]="hide ? 'password' : 'text'"  placeholder="Unesite šifru"  required
+                formControlName="password" class="form-control" 
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" /> 
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button> 
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Obavezan unos</div>
+                </div>  
+            </div>          
+        <div class="divbtn">
+            <button class="btn" type="submit" [routerLink]="['/dashboard']">Login</button>
+        </div>
+    </fieldset> 
+    </form>
+    <div class="regfooter">
+
+    </div>
+</div> -->
+<!-- 
+
+<div class="col-md-6 offset-md-3 mt-5">
+    <!-- <div class="alert alert-info">
+        <strong>Normal User</strong> - U: user P: user<br />
+        <strong>Administrator</strong> - U: admin P: admin
+    </div> -->
+    <!-- <div class="card">
+        <h4 class="card-header" style="text-align: center;">Login</h4>
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>             --> 

@@ -1,0 +1,76 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+header
+{
+    height: 120px;
+    display: flex;
+    background: linear-gradient(#7cafe2c5, #d8e1e9f1);
+    grid-template-columns: 25%, 50%, 25%; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 7px 8px;
+    
+}
+.naslov
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+    font-family: 'Teko', sans-serif;
+    color: rgba(20, 20, 32, 0.931);
+}
+.naslov h1
+{
+    font-size: 30px;
+}
+.logoptf, .logounze{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logoptf img
+{
+    width: 90px;
+    height: 90px;
+}
+.logounze img
+{
+    width: 100px;
+    height: 100px;
+}
+.divtekst
+{
+    display: flex;
+    justify-content: center;
+}
+.tekst
+{
+    height: 200px;
+    text-align: center;
+    padding-top: 40px;
+    width: 60%;
+    margin-bottom: 30px;
+}
+.tekst h1
+{
+    font-family: 'Kalam', cursive;
+    font-size: 50px;
+    color: rgba(251, 252, 253, 0.911);
+    margin-bottom: 30px;
+}
+.tekst p
+{
+    font-size: 20px;
+    font-family: 'Special Elite', cursive;
+    padding-left: 20px;
+    padding-top: 15px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.397);
+    border-radius: 30px;
+}

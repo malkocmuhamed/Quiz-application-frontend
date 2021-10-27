@@ -1,0 +1,41 @@
+﻿<!-- <div class="card mt-4">
+    <h4 class="card-header">Admin</h4>
+    <div class="card-body">
+        <p>This page can be accessed <u>only by administrators</u>.</p>
+        <p class="mb-1">All users from secure (admin only) api end point:</p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="users">
+            <li *ngFor="let user of users">{{user.name}}</li>
+        </ul>
+    </div>
+</div> -->
+<div class="adduserdiv">
+    <div class="adduser">
+        <button class="btn2" mat-raised-button color="primary" routerLink="/user">DODAJ KORISNIKA</button><br>
+    </div>
+</div>
+<div class="tablediv">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="th">ID korisnika</th>
+                <th class="th">Ime i prezime</th>
+                <th class="th">E-mail</th>
+                <th class="th">Obriši korisnika</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users ">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td><button class="deletebutton" (click)="removeUser(user.id)">Ukloni</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="backuserdiv">
+    <div class="backuser">
+        <button class="btn3" mat-raised-button color="primary" routerLink="/home">NAZAD</button><br>
+    </div>
+</div>

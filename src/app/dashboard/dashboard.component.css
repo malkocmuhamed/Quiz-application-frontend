@@ -1,0 +1,115 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header
+{
+    height: 120px;
+    display: flex;
+    background: linear-gradient(#7cafe2c5, #d8e1e9c4);
+    grid-template-columns: 25%, 50%, 25%; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 7px 8px;
+}
+.naslov
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+    font-family: 'Teko', sans-serif;
+    color: rgba(20, 20, 32, 0.931);
+}
+.naslov h1
+{
+    font-size: 30px;
+}
+.logoptf, .logounze{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logoptf img
+{
+    width: 90px;
+    height: 90px;
+}
+.logounze img
+{
+    width: 100px;
+    height: 100px;
+}
+.tekst
+{
+    height: 100px;
+    text-align: center;
+    padding: 20px 0px 0px 0px;
+}
+.tekst h1
+{
+    font-family: 'Kalam', cursive;
+    font-size: 50px;
+    color: rgb(251, 251, 251);
+    margin-bottom: 0px;
+}
+.tekst h2
+{
+    font-family: 'Kalam', cursive;
+    font-size: 30px;
+    color: rgba(9, 19, 39, 0.842);
+}
+.godine
+{
+    display: grid;
+    grid-template-columns: repeat(3, 33.333%);
+    background-color: rgba(139, 187, 171, 0.322);
+    height: 400px;
+    margin: 0px 50px 0px 50px;
+    border-radius: 30px;
+}
+.godina
+{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.gdiv
+{
+    background-color: rgba(98, 52, 89, 0.548);
+    border-radius: 20px;
+    width: 350px;
+    height: 300px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 7px 8px;
+}
+.gdiv h4
+{
+    font-family: 'Patrick Hand', cursive;
+    font-size: 30px;
+    font-weight:bold;
+    color: rgb(246, 242, 242);
+    background-color: rgba(52, 66, 88, 0.678);
+    margin-top: 30px;
+    height: 45px;
+    padding-top: 10px;
+}
+.gdiv p{
+    font-family: 'Kalam', cursive;
+    font-weight: bold;
+    color: rgb(236, 228, 228);
+    background-color: rgb(48, 55, 61);
+    width: 100px;
+    border-radius: 0px 10px 10px 0px;
+}
+.gdiv h5
+{
+    font-size:55px;
+    margin-top: 45px;
+    opacity: 40%;
+    font-family: 'Patrick Hand', cursive;
+}

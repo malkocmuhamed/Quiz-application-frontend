@@ -1,0 +1,23 @@
+<div class="e-form">
+    <br>
+    <h2>DODAVANJE KORISNIKA</h2>
+    <form ngNativeValidate class="add-form" (ngSubmit)="addUser()" action="" #userForm="ngForm">
+        <mat-form-field class="full-width">
+            <mat-label>Ime i prezime</mat-label>
+            <input type="text" name="name" #name="ngModel" required matInput placeholder="Ime i prezime..."
+                [(ngModel)]="userModel.name">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width">
+            <mat-label>E-mail</mat-label>
+            <input type="email" name="email" #email="ngModel" required matInput placeholder="E-mail..."
+                [(ngModel)]="userModel.email">
+        </mat-form-field>
+        <div class="grid">
+            <button [disabled]="userForm.form.invalid" class="btnuserback" mat-raised-button color="primary"
+                type="submit">ADD USER</button>
+            <button class="btnuserback" mat-raised-button color="primary" type="button"
+                routerLink="/admin">NAZAD</button>
+        </div>
+    </form>
+</div>
