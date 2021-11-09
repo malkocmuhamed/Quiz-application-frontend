@@ -1,22 +1,25 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { environment } from '../../environments/environment';
+import { IdentityServerToken } from '../_models/identity-server-token.model';
 import { User } from "../_models/user.model";
-import { UserTypes } from '../_models/usertypes.model';
+import { LocalStorageService } from './local-storage.service';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private userSubject: BehaviorSubject<User>;
     public token: Observable<User>;
-    authenticateUrl = environment.apiUrl + '/api/users/authenticate';
+    //private authenticateUrl = environment.apiUrl + '/api/users/authenticate';
+    private authenticateUrl = environment.identityServerUrl + '/connect/token';
 
     constructor(
         private router: Router,
-        private http: HttpClient
+        private http: HttpClient,
+        private localStorageService: LocalStorageService
     ) {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('token')));
         this.token = this.userSubject.asObservable();
@@ -29,31 +32,24 @@ export class AuthenticationService {
     //     return this.userSubject.value;
     // }
 
-    login(email: string, password: string){ // : Observable<void> {
-        return this.http.post<any>(this.authenticateUrl, { email, password })
-            .pipe(map(token => {
-                //return this.setTokenInLocalStorage(token);
+    login(email: string, password: string){ 
+        let body = 'username=' + email + '&password=' + password + '&grant_type=password&client_id=QuizApp.Frontend&scope=openid+profile+offline_access+QuizApp.Frontend';
+        let headers = new HttpHeaders ({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        let options = { headers: headers };
 
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                
-                localStorage.setItem('token',  JSON.stringify(token));
+        return this.http.post<any>(this.authenticateUrl, body, options)
+            .pipe(map(token => {
+                this.localStorageService.setAccessToken(new IdentityServerToken(token));
                 this.userSubject.next(token);
-                return token;
-                
+
+
+                this.router.navigate(['/home'])
             }));
     }
 
-    // setTokenInLocalStorage(token) {
-    //     localStorage.setItem('token', token);
-    // }
-
-    // readToken() {
-    //     return localStorage.getItem('token');
-    // }
-
     logout() {
-        // remove user from local storage to log user out
-        localStorage.removeItem('token');
+        this.localStorageService.removeAccessToken();
+        //localStorage.removeItem('token');
         this.userSubject.next(null);
         this.router.navigate(['/login']);
     }
