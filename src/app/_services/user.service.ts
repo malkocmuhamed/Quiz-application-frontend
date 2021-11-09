@@ -53,7 +53,7 @@ export class UserService {
     }
     
     getById(id: number) {
-        return this.http.get<User>(this.userUrl + '/' + id);
+        return this.http.get<User>(this.userUrl + '/' + '6');
     }
 
     deleteUser(id: number) {
