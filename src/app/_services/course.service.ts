@@ -9,21 +9,11 @@ import { Course } from "../_models/course.model";
 })
 export class CourseService {
 
-    //  semesterUrl = environment.baseUrl + '/api/assigneduser';
+    courseUrl = environment.apiUrl + '/api/courses';
 
-    constructor(private _http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-    // postSemester(semester: Semester) {
-    //     return this._http.post<any>(this.semesterUrl, semester);
-    // }
-
-    // getAllSemesters(): Observable<Semester[]> {
-    //     return this._http.get<Semester[]>(this.semesterUrl);
-    // }
-
-    // deleteUser(id: number) {
-    //     this._http.delete(this.usersUrl + '/' + id).subscribe(data => {
-    //         alert("User with ID " + id + ": Successfully removed!");
-    //     });     
-    // }
+    getAllCourses(): Observable<Course[]> {
+        return this.http.get<Course[]>(this.courseUrl);
+    }
 }

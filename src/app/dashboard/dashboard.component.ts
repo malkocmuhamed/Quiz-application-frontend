@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DrugagodinaComponent } from '../drugagodina/drugagodina.component';
-import { PrvagodinaComponent } from '../prvagodina/prvagodina.component';
-import { TrecagodinaComponent } from '../trecagodina/trecagodina.component';
+import { Course } from '../_models/course.model';
+import { CourseService } from '../_services/course.service';
+import { CourseQuizzesComponent } from '../course-quizzes/course-quizzes.component';
+import { Quiz } from '../_models/quiz.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,20 +11,30 @@ import { TrecagodinaComponent } from '../trecagodina/trecagodina.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  loading = false;
+  public courses: Course[];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private courseService: CourseService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.getCoursesList();
   }
 
-  listaPrva():void {
-    this.dialog.open(PrvagodinaComponent, {width: '450px'});
+  getCoursesList() {
+    this.loading = true;
+    this.courseService.getAllCourses().subscribe(data => {
+      this.courses = data;
+    })
   }
-  listaDruga():void {
-    this.dialog.open(DrugagodinaComponent, {width: '450px'});
-  }
-  listaTreca():void {
-    this.dialog.open(TrecagodinaComponent, {width: '450px'});
+
+  viewDetails(id: number): void {
+    let course = this.courses.find(x => x.id == id);
+    this.dialog.open(CourseQuizzesComponent, {
+      width: '450px',
+      data: {
+        name: course.name
+      }
+    });
   }
 
 }

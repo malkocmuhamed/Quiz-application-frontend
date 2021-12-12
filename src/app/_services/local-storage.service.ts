@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { IdentityServerToken } from '../_models/identity-server-token.model';
 
 @Injectable({ providedIn: 'root' })
-export class LocalStorageService {  
-    constructor() {}
+export class LocalStorageService {
+    constructor() { }
 
     getAccessToken() {
         return localStorage.getItem('quizapp.accessToken');
     }
-    
+
     getRefreshToken() {
         return localStorage.getItem('refreshToken');
     }

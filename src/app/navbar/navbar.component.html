@@ -1,0 +1,9 @@
+<nav class="homeheader">
+    <div class="hh1">
+        <button class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin dashboard</button>
+        <img src="https://ptf.unze.ba/wp/wp-content/uploads/2018/02/Logo-PTF018.png" alt="" *ngIf="isUser">
+    </div>
+    <div class="hh2">
+        <button class="nav-item nav-link" (click)="logout()">Odjava</button>
+    </div>
+</nav>

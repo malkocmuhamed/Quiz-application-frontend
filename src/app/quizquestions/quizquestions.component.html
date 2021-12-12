@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+
+<div class="headdiv">
+    <div class="row" *ngIf="quizQuestionService.qns && this.quizQuestionService.qnProgress != 10" style="width: 60%">
+        <div class="div1">
+            <span>Vrijeme: {{quizQuestionService.displayTimeElapsed()}}</span>
+            <div class="progressbar">
+                <mat-progress-bar class="matbar" mode="determinate"
+                    [style.width.%]="(quizQuestionService.qnProgress+1)*10"></mat-progress-bar>
+            </div>
+            <div class="divqns">
+                <div class="divqns1">
+                    <span class="card-title">Pitanje broj {{quizQuestionService.qnProgress+1}}</span>
+                    <p>{{quizQuestionService.qns[quizQuestionService.qnProgress].name}}</p>
+                </div>
+                <div class="divoptions">
+                    <ul>
+                        <div
+                            *ngFor="let option of quizQuestionService.qns[quizQuestionService.qnProgress].options;let i = index">
+                            <li *ngIf="option != null" class="collection-item"
+                                (click)="answer(quizQuestionService.qns[quizQuestionService.qnProgress].id,i)">
+                                {{option}}
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,42 +7,24 @@
         @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
     </style>
 </head>
-<!-- <header>
-    <div class="logoptf">
-        <img src="https://ptf.unze.ba/wp/wp-content/uploads/2018/02/Logo-PTF018.png" alt="">
-    </div>
-    <div class="naslov">
-        <h1>POLITEHNIČKI FAKULTET UNZE <br> <i> Softversko inženjerstvo </i></h1>
-    </div>
-    <div class="logounze">
-        <img src="https://unze.ba/wp-content/uploads/2020/08/Unze-logo-bijeli-400x400.png" alt="">
-        <img src="https://unze.ba/wp-content/uploads/2020/08/Unze-logo-bijeli-400x400.png" alt="">
-    </div>
-</header> -->
 <div class="tekst">
     <h1>Dobrodošli </h1>
 </div>
-<div class="godine">
-    <div class="godina">
-        <div class="gdiv" (click)="listaPrva()">
-            <h4>PRVA GODINA</h4>
-            <p>10 predmeta</p>
-            <h5>Click me!</h5>
-            <!-- <mat-icon>mood</mat-icon> -->
-        </div>
-    </div>
-    <div class="godina">
-        <div class="gdiv" (click)="listaDruga()">
-            <h4>DRUGA GODINA</h4>
-            <p>10 predmeta</p>
-            <h5>Click me!</h5>
-        </div>  
-    </div> 
-    <div class="godina">
-        <div class="gdiv" (click)="listaTreca()">
-            <h4>TREĆA GODINA</h4>
-            <p>7 predmeta</p>
-            <h5>Click me!</h5>
-        </div>   
-    </div>
+<div class="tablediv">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="th">LISTA PREDMETA</th>
+            </tr>
+        </thead><br>
+        <tbody>
+            <tr *ngFor="let course of courses ">
+                <mat-card>
+                    <div class="coursediv" (click)="viewDetails(course.id)">
+                        <td>{{course.name}}</td>
+                    </div>
+                </mat-card>
+            </tr>
+        </tbody>
+    </table>
 </div>

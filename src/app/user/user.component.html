@@ -13,6 +13,19 @@
             <input type="email" name="email" #email="ngModel" required matInput placeholder="E-mail..."
                 [(ngModel)]="userModel.email">
         </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Šifra</mat-label>
+            <input type="text" name="password" #password="ngModel" required matInput placeholder="Šifra..."
+                [(ngModel)]="userModel.password">
+        </mat-form-field>
+        <div class="radio">
+            <mat-radio-group aria-label="Select an option" #userTypeId="ngModel" [(ngModel)]="userModel.userTypeId"
+                (change)="radioGroupChange($event)" name="userTypeId">
+                <p style="color: black; text-align: center;">Rola</p>
+                <mat-radio-button value="2" required>Admin</mat-radio-button>
+                <mat-radio-button value="1" required>Korisnik</mat-radio-button>
+            </mat-radio-group>
+        </div>
         <div class="grid">
             <button [disabled]="userForm.form.invalid" class="btnuserback" mat-raised-button color="primary"
                 type="submit">ADD USER</button>

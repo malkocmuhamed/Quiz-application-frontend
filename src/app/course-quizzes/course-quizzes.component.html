@@ -1,0 +1,6 @@
+<div class="divdates">
+    <h4>Lista kvizova</h4>
+    <div class="div1" *ngFor="let quiz of quizzes">
+        <button *ngIf=routerLink="/quizquestions">{{quiz.name}}</button>
+    </div>
+</div>

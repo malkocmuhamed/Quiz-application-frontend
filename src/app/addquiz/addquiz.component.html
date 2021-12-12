@@ -1,0 +1,30 @@
+<div class="e-form">
+    <br>
+    <h2>DODAVANJE KVIZA</h2>
+    <form ngNativeValidate class="add-form" (ngSubmit)="addQuiz()" action="" #quizForm="ngForm">
+        <div class="matselect">
+            <mat-form-field appearance="fill">
+                <mat-label>Odaberite predmet za kviz</mat-label>
+                <mat-select (change)="changeClient($event)" name="courseId" #courseId="ngModel"
+                    [(ngModel)]="quizModel.courseId">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let course of courses" [value]="course.id">
+                        {{course.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="full-width">
+            <mat-label>Naziv kviza</mat-label>
+            <input type="text" name="name" #name="ngModel" required matInput placeholder="Dodajte naziv..."
+                [(ngModel)]="quizModel.name">
+        </mat-form-field>
+        <br>
+        <div class="grid">
+            <button [disabled]="quizForm.form.invalid" class="btnuserback" mat-raised-button color="primary"
+                type="submit">DODAJ KVIZ</button>
+            <button class="btnuserback" mat-raised-button color="primary" type="button"
+                routerLink="/admin">NAZAD</button>
+        </div>
+    </form>
+</div>

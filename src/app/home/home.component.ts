@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core';
 import { first } from 'rxjs/operators';
-
+import { NavbarComponent } from '../navbar/navbar.component';
 import { User } from '../_models/user.model';
 import { AuthenticationService } from '../_services/authentication.service';
 import { UserService } from '../_services/user.service';
@@ -15,7 +15,6 @@ export class HomeComponent {
         private userService: UserService,
         private authenticationService: AuthenticationService
     ) {
-        this.user = this.authenticationService.userValue;
     }
 
     ngOnInit() {

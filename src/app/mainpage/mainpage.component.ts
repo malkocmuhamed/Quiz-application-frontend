@@ -8,27 +8,19 @@ import { UserService } from '../_services/user.service';
 })
 export class MainpageComponent implements OnInit {
 
-  // constructor() { }
+  users: User[];
 
-  // ngOnInit(): void {
-  // }
-  // loading = false;
-    users: User[];
+  constructor(private userService: UserService) { }
 
-    constructor(private userService: UserService) { }
+  ngOnInit() {
+    this.getUsersList();
+  }
 
-    ngOnInit() {
-        // this.loading = true;
-        // this.userService.getAllUsers().pipe(first()).subscribe(users => {
-        //     this.loading = false;
-        this.getUsersList();
-    }
 
-    
-    getUsersList(): void {
-        this.userService.getAllUsers().subscribe(data => {
-        this.users = data;
+  getUsersList(): void {
+    this.userService.getAllUsers().subscribe(data => {
+      this.users = data;
     })
-    }
+  }
 }
 

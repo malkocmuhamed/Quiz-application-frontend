@@ -1,51 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
-
-import { HomeComponent } from './home';
+import { AddquizComponent } from './addquiz/addquiz.component';
 import { AdminComponent } from './admin';
+import { HomeComponent } from './home';
 import { LoginComponent } from './login';
-import { AuthGuard } from './_helpers';
-import { Role } from './_models/role.model';
-import { User } from './_models/user.model';
-import { UserTypes } from './_models/usertypes.model';
+import { QuizquestionsComponent } from './quizquestions/quizquestions.component';
+import { ResultComponent } from './result/result.component';
 import { UserComponent } from './user/user.component';
+
 
 const routes: Routes = [
 
-  // {
-  //   path: '',
-  //   component: MainpageComponent
-  // },
-  // {
-  //   path: 'dashboard',
-  //   component: DashboardComponent
-  // }
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard]
-},
-{
+  },
+  {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [AuthGuard],
-    // data: { roles: [] }
-},
-{
+  },
+  {
     path: 'login',
     component: LoginComponent
-},
-{
-  path: 'user',
-  component: UserComponent
-},
+  },
+  {
+    path: 'user',
+    component: UserComponent
+  },
+  {
+    path: 'addquiz',
+    component: AddquizComponent
+  },
+  {
+    path: 'result',
+    component: ResultComponent
+  },
+  {
+    path: 'quizquestions',
+    component: QuizquestionsComponent
+  },
 
-
-// otherwise redirect to home
-{ path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
